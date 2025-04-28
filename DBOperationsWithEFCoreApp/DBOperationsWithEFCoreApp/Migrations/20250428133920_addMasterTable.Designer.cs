@@ -4,6 +4,7 @@ using DBOperationsWithEFCoreApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBOperationsWithEFCoreApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250428133920_addMasterTable")]
+    partial class addMasterTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,38 +148,6 @@ namespace DBOperationsWithEFCoreApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "English Language",
-                            Title = "English"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Hindi Language",
-                            Title = "Hindi"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "French Language",
-                            Title = "French"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "German Language",
-                            Title = "German"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Spanish Language",
-                            Title = "Spanish"
-                        });
                 });
 
             modelBuilder.Entity("DBOperationsWithEFCoreApp.Data.Book", b =>
